@@ -11,6 +11,7 @@
                 <field
                     name="approver_id"
                     readonly="review_ids"
+                    widget="many2one_avatar_user"
                     invisible="move_type in ('out_invoice', 'out_refund', 'entry')"
                 />
             </xpath>

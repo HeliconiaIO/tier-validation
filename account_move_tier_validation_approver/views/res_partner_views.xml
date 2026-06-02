@@ -11,7 +11,7 @@
                 expr="//field[@name='property_supplier_payment_term_id']"
                 position="after"
             >
-                <field name="approver_id" />
+                <field name="approver_id" widget="many2one_avatar_user" />
             </xpath>
         </field>
     </record>

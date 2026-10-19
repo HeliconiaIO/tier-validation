@@ -14,8 +14,10 @@ class TierValidation(models.AbstractModel):
     def _compute_require_authentication(self):
         for rec in self:
             require_authentication = rec.review_ids.filtered(
-                lambda r: r.status in ("waiting", "pending")
-                and (self.env.user in r.reviewer_ids)
+                lambda r: (
+                    r.status in ("waiting", "pending")
+                    and (self.env.user in r.reviewer_ids)
+                )
             ).mapped("require_authentication")
             rec.require_authentication = True in require_authentication
 

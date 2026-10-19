@@ -61,5 +61,5 @@ class TierDefinition(models.Model):
                         review_doc._validate_tier(review)
                         review_doc._update_counter({"review_deleted": True})
                         _logger.info(f"Auto tier validate on {review_doc}")
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 _logger.error(f"Cannot auto tier validate {doc}: {e}")

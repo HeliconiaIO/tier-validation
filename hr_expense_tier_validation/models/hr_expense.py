@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import ast
+from typing import ClassVar
 
 from odoo import api, models
 from odoo.exceptions import ValidationError
@@ -9,11 +10,11 @@ from odoo.exceptions import ValidationError
 
 class HrExpense(models.Model):
     _name = "hr.expense"
-    _inherit = ["hr.expense", "tier.validation"]
+    _inherit: ClassVar[list[str]] = ["hr.expense", "tier.validation"]
 
     _state_field = "approval_state"
-    _state_from = ["submitted"]
-    _state_to = ["approved"]
+    _state_from: ClassVar[list[str]] = ["submitted"]
+    _state_to: ClassVar[list[str]] = ["approved"]
 
     _tier_validation_manual_config = False
 
